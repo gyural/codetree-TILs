@@ -26,8 +26,9 @@ for i in range(N):
 set_word = get_set_word(0, words, [], [])
 
 for combi in set_word:
-    a, b, c = combi
-    d = a+b+c
+    d=""
+    for word in combi:
+        d += word
 
     obj = {}
     for char in d:

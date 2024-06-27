@@ -1,13 +1,3 @@
-def get_set_word(idx, arrays, temp, result):
-    if(len(arrays) == idx):
-        result.append(temp)
-        temp = []
-        return
-    else:
-        for w in arrays[idx]:            
-            get_set_word(idx+1, arrays, temp+[w], result)
-    return result
-
 length = ord('z')-ord('a')+1
 result = [0 for i in range(length)]
 
@@ -19,12 +9,18 @@ for i in range(N):
     a, b = input().split()
     a = list(a)
     b = list(b)
-    c = a+b
-    c = set(c)
-
-    for k in c:
-        idx = ord(k)-ord('a')
-        result[idx] += 1
+    
+    temp1 = [0] * length
+    temp2 = [0] * length
+    for char in a:
+        idx = ord(char)-ord('a')
+        temp1[idx] +=1
+    for char in b:
+        idx = ord(char)-ord('a')
+        temp2[idx] +=1
+    
+    for idx in range(length):
+        result[idx]+= max(temp1[idx], temp2[idx])
 
 for val in result:
     print(val)

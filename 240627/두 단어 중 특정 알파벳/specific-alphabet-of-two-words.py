@@ -30,16 +30,11 @@ for combi in set_word:
     for word in combi:
         d += word
 
-    obj = {}
+    temp= [0] * length
     for char in d:
-        if(char in obj.keys()):
-            obj[char] += 1
-        else:
-            obj[char] = 1
-
-    for key, val in obj.items():
-        idx = ord(key)-ord('a')
-        result[idx] = max(result[idx], val)
-    del obj
+        idx = ord(char)-ord('a')
+        temp[idx]+=1
+    for i in range(length):
+        result[i] = max(result[i], temp[i])
 for val in result:
     print(val)

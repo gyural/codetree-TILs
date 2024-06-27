@@ -40,6 +40,6 @@ for combi in set_word:
     for key, val in obj.items():
         idx = ord(key)-ord('a')
         result[idx] = max(result[idx], val)
-
+    del obj
 for val in result:
     print(val)
